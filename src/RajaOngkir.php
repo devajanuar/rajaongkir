@@ -94,6 +94,21 @@ class RajaOngkir
 
         return $resource;
     }
+    
+    /**
+     * @return \Kavist\RajaOngkir\Resources\Subdistrict;
+     */
+    public function kecamatan(): Subdistrict
+    {
+        $resource = new Subdistrict($this->httpClient);
+
+        if (null === $this->searchDriver) {
+            $resource->setSearchDriver(new BasicDriver);
+            $resource->setSearchColumn();
+        }
+
+        return $resource;
+    }
 
     /**
      * @param array $payload
